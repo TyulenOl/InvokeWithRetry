@@ -6,9 +6,8 @@ namespace InvokeWithRetry
     {
         static void Main()
         {
-        
         }
-        
+
         public static bool InvokeWithRetry(Action action, int maxAttempts)
         {
             for (var i = 0; i < maxAttempts; i++)
@@ -16,14 +15,15 @@ namespace InvokeWithRetry
                 try
                 {
                     action.Invoke();
+                    return true;
                 }
                 catch (Exception)
                 {
-                    if (i == maxAttempts - 1)
-                        return false;
+                    continue;
                 }
             }
-            return true;
+
+            return false;
         }
     }
 }

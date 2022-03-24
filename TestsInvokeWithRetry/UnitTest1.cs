@@ -34,6 +34,6 @@ public class Tests
     public void TestWithСountingAction()
     {
         Assert.AreEqual(true, Program.InvokeWithRetry(countingAction, 4));
-        Assert.AreEqual(4, attempts);
+        Assert.AreEqual(1, attempts);
     }
 }
